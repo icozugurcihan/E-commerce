@@ -22,23 +22,33 @@ export default function EditorPick() {
 
         {/* MEN */}
         <div
-          className="flex flex-1 items-end h-[500px] bg-cover bg-center p-6"
-          style={{ backgroundImage: `url(${menImg})` }}
-        >
-          <span className="bg-white px-6 py-2 text-sm font-bold">
-            MEN
-          </span>
+            className="
+            flex items-end
+            h-[460px]        /* MOBİL */
+            lg:h-[180px]     /* DESKTOP */
+            lg:flex-1
+            bg-cover bg-center p-6
+            "
+            style={{ backgroundImage: `url(${menImg})` }}
+            >
+            <span className="bg-white px-6 py-2 text-sm font-bold">MEN</span>
         </div>
+
 
         {/* WOMEN */}
         <div
-          className="flex flex-1 items-end h-[500px] bg-cover bg-center p-6"
-          style={{ backgroundImage: `url(${womenImg})` }}
-        >
-          <span className="bg-white px-6 py-2 text-sm font-bold">
-            WOMEN
-          </span>
+         className="
+          flex items-end
+          h-[520px]        /* MOBİL */
+          lg:h-[180px]     /* DESKTOP */
+          lg:flex-1
+          bg-cover bg-center p-6
+           "
+           style={{ backgroundImage: `url(${womenImg})` }}
+            >
+            <span className="bg-white px-6 py-2 text-sm font-bold">WOMEN</span>
         </div>
+
 
         {/* RIGHT COLUMN */}
         <div className="flex flex-col flex-1 gap-6">

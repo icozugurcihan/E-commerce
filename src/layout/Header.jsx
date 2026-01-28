@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex flex-col w-full">
 
       {/* TOP BAR */}
-      <div className="flex justify-between items-center px-4 py-2 bg-slate-800 text-white text-xs">
+      <div className="hidden md:flex justify-between items-center px-4 py-2 bg-slate-800 text-white text-xs">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">
             <Phone size={14} />
