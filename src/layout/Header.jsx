@@ -1,6 +1,7 @@
 import { Phone, Mail, Search, ShoppingCart, Instagram, Youtube, X, Heart, User, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import shop from "../pages/Shop.jsx";
 export default function Header() {
   return (
     <header className="flex flex-col w-full">
@@ -35,15 +36,28 @@ export default function Header() {
           Bandage
         </Link>
 
-        {/* MENU */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/">Home</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/pages">Pages</Link>
-        </nav>
+<nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+  <NavLink
+    to="/"
+    exact
+    activeClassName="text-cyan-600"
+  >
+    Home
+  </NavLink>
+
+  <NavLink
+    to="/shop"
+    activeClassName="text-cyan-600"
+  >
+    Shop
+  </NavLink>
+
+  <NavLink to="/about">About</NavLink>
+  <NavLink to="/blog">Blog</NavLink>
+  <NavLink to="/contact">Contact</NavLink>
+  <NavLink to="/pages">Pages</NavLink>
+</nav>
+
 
         {/* ACTIONS */}
         <div className="flex items-center gap-4 text-sm">
