@@ -7,6 +7,7 @@ import Shop from "./pages/Shop";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import ProductDetail from "./pages/ProductDetail"; // ✅ EKLENDİ
 
 export default function App() {
   return (
@@ -16,7 +17,13 @@ export default function App() {
       <main className="flex flex-col flex-1">
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={Shop} />
+
+          {/* 🔥 ÖNCE PRODUCT DETAIL */}
+          <Route path="/product/:id" component={ProductDetail} />
+
+          {/* SONRA SHOP */}
+          <Route exact path="/shop" component={Shop} />
+
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
           <Route path="/contact" component={Contact} />

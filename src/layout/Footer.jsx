@@ -4,6 +4,20 @@ export default function Footer() {
   return (
     <footer className="w-full border-t">
       {/* TOP */}
+      {/* BRAND LINE */}
+<section className="border-t border-gray-200 py-10">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="flex flex-wrap items-center justify-center gap-10 opacity-60">
+      <img src="/logos/hooli.png" alt="Hooli" className="h-8" />
+      <img src="/logos/lyft.png" alt="Lyft" className="h-8" />
+      <img src="/logos/leaf.png" alt="Leaf" className="h-8" />
+      <img src="/logos/stripe.png" alt="Stripe" className="h-8" />
+      <img src="/logos/aws.png" alt="AWS" className="h-8" />
+      <img src="/logos/reddit.png" alt="Reddit" className="h-8" />
+    </div>
+  </div>
+</section>
+
       <div className="flex flex-col gap-12 px-6 py-16 max-w-[1200px] mx-auto">
         {/* LOGO + SOCIAL */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">

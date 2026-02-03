@@ -1,24 +1,23 @@
 import { useState } from "react";
 import { products } from "../data/products";
+import { Link } from "react-router-dom";
 
 const PRODUCTS_PER_PAGE = 8;
 
 export default function Shop() {
   const [currentPage, setCurrentPage] = useState(1);
   const [view, setView] = useState("grid"); // grid | list
-const [tempSort, setTempSort] = useState("default");
-const [activeSort, setActiveSort] = useState("default");
+  const [tempSort, setTempSort] = useState("default");
+  const [activeSort, setActiveSort] = useState("default");
 
+  /* SORT */
+  const sortedProducts = [...products].sort((a, b) => {
+    if (activeSort === "priceLow") return a.price - b.price;
+    if (activeSort === "priceHigh") return b.price - a.price;
+    return 0;
+  });
 
-  // SORT
-const sortedProducts = [...products].sort((a, b) => {
-  if (activeSort === "priceLow") return a.price - b.price;
-  if (activeSort === "priceHigh") return b.price - a.price;
-  return 0;
-});
-
-
-  // PAGINATION
+  /* PAGINATION */
   const totalPages = Math.ceil(
     sortedProducts.length / PRODUCTS_PER_PAGE
   );
@@ -50,7 +49,6 @@ const sortedProducts = [...products].sort((a, b) => {
                   : "bg-white"
               }`}
             >
-              
               ⬛⬛⬛
             </button>
             <button
@@ -65,29 +63,32 @@ const sortedProducts = [...products].sort((a, b) => {
             </button>
           </div>
 
-          {/* SORT */}
-<select
-  value={tempSort}
-  onChange={(e) => setTempSort(e.target.value)}
-  className="border px-3 py-2 rounded text-sm"
->
-  <option value="default">Popularity</option>
-  <option value="priceLow">Price: Low to High</option>
-  <option value="priceHigh">Price: High to Low</option>
-</select>
+          {/* SORT SELECT */}
+          <select
+            value={tempSort}
+            onChange={(e) => setTempSort(e.target.value)}
+            className="border px-3 py-2 rounded text-sm"
+          >
+            <option value="default">Popularity</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+          </select>
 
-
-          {/* FILTER (UI hazır) */}
-<button
-  onClick={() => {
-    setActiveSort(tempSort);
-    setCurrentPage(1);
-  }}
-  className="bg-blue-500 text-white px-4 py-2 rounded text-sm"
->
-  Filter
-</button>
-
+          {/* FILTER BUTTON */}
+          <button
+            disabled={tempSort === activeSort}
+            onClick={() => {
+              setActiveSort(tempSort);
+              setCurrentPage(1);
+            }}
+            className={`px-4 py-2 rounded text-sm ${
+              tempSort === activeSort
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-blue-500 text-white"
+            }`}
+          >
+            Filter
+          </button>
         </div>
       </div>
 
@@ -100,11 +101,12 @@ const sortedProducts = [...products].sort((a, b) => {
         }
       >
         {visibleProducts.map((product) => (
-          <div
+          <Link
             key={product.id}
+            to={`/product/${product.id}`}
             className={
               view === "grid"
-                ? "text-center"
+                ? "text-center block"
                 : "flex gap-6 items-center border p-4 rounded"
             }
           >
@@ -125,12 +127,15 @@ const sortedProducts = [...products].sort((a, b) => {
               </p>
 
               <p className="mt-2 font-semibold">
+                <span className="line-through text-gray-400 mr-2">
+                  ${product.oldPrice}
+                </span>
                 <span className="text-green-500">
                   ${product.price}
                 </span>
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
