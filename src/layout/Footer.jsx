@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
-
+import {Link} from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="w-full border-t">
@@ -43,7 +43,7 @@ export default function Footer() {
             <a className="text-sm text-gray-500">About Us</a>
             <a className="text-sm text-gray-500">Carrier</a>
             <a className="text-sm text-gray-500">We are hiring</a>
-            <a className="text-sm text-gray-500">Blog</a>
+            <Link to="/team" className="text-sm text-blue-900 hover:text-red-700 font-semibold">Our Team</Link>
           </div>
 
           {/* COLUMN */}

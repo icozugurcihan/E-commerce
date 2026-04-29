@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import ProductDetail from "./pages/ProductDetail"; // ✅ EKLENDİ
+import TeamPage from "./pages/Team";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
           <Route path="/contact" component={Contact} />
+          <Route path="/team" component={TeamPage} /> {/* EKLENDİ */}
         </Switch>
       </main>
 
